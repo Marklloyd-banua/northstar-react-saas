@@ -1,0 +1,1 @@
+export function LoadingSkeleton({rows=5}:{rows?:number}){return <div className="loading-skeleton" aria-label="Loading"><span/>{Array.from({length:Math.max(0,rows-1)},(_,index)=><span key={index}/>)}</div>}

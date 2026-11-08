@@ -1,0 +1,2 @@
+import { Modal } from './Modal'
+export function ConfirmDialog({title,description,confirmLabel='Confirm',onConfirm,onClose,danger=false}:{title:string;description:string;confirmLabel?:string;onConfirm:()=>void;onClose:()=>void;danger?:boolean}){return <Modal title={title} onClose={onClose}><div className="modal-body">{description}</div><div className="modal-actions"><button className="btn btn-outline-secondary" onClick={onClose}>Cancel</button><button className={`btn ${danger?'btn-danger':'btn-primary'}`} onClick={onConfirm}>{confirmLabel}</button></div></Modal>}

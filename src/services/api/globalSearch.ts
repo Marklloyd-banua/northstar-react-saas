@@ -1,0 +1,4 @@
+import { listPlatformRecords } from '../dataRepository'
+const sources=[['stores','Stores','/stores'],['tenants','Tenants','/tenants'],['subscriptions','Subscriptions','/subscriptions'],['billing','Invoices','/billing'],['payments','Transactions','/payments'],['platform-users','Platform users','/platform-users']] as const
+export interface SearchHit { id:string; label:string; description:string; category:string; path:string }
+export async function searchPlatform(query:string):Promise<SearchHit[]>{if(!query.trim())return[];const results=await Promise.all(sources.map(async([resource,category,path])=>{const page=await listPlatformRecords(resource,query,'All',1,3);return page.items.map(row=>({id:row.id,label:String(row.name??row.title??row.number??row.id),description:String(row.domain??row.email??row.tenant??row.plan??''),category,path}))}));return results.flat().slice(0,8)}

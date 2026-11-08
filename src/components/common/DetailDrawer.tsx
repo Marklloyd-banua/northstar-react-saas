@@ -1,0 +1,2 @@
+import type { ReactNode } from 'react'
+export function DetailDrawer({title,children,onClose}:{title:string;children:ReactNode;onClose:()=>void}){return <div className="drawer-scrim" onMouseDown={event=>event.target===event.currentTarget&&onClose()}><aside className="detail-drawer" role="dialog" aria-modal="true" aria-label={title}><header><h2>{title}</h2><button className="btn-icon" onClick={onClose} aria-label="Close details"><i className="bi bi-x-lg"/></button></header><div>{children}</div></aside></div>}

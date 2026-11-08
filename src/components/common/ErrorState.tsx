@@ -1,0 +1,1 @@
+export function ErrorState({title='Something went wrong',message='Please try again.',onRetry}:{title?:string;message?:string;onRetry:()=>void}){return <div className="error-state" role="alert"><i className="bi bi-exclamation-triangle"/><strong>{title}</strong><span>{message}</span><button className="btn btn-outline-secondary btn-sm" onClick={onRetry}>Try again</button></div>}

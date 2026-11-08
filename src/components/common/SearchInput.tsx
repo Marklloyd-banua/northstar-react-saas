@@ -1,0 +1,1 @@
+export function SearchInput({value,onChange,placeholder='Search…'}:{value:string;onChange:(value:string)=>void;placeholder?:string}){return <label className="table-search"><i className="bi bi-search"/><input aria-label={placeholder} placeholder={placeholder} value={value} onChange={event=>onChange(event.target.value)}/></label>}
