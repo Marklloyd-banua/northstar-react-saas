@@ -31,7 +31,7 @@ export function AdminSidebar() {
   return <>
     <div className={`sidebar-backdrop ${sidebarOpen ? 'show' : ''}`} onClick={toggleSidebar} aria-hidden="true"/>
     <aside className={`admin-sidebar ${sidebarOpen ? 'mobile-open' : ''}`}>
-      <div className="brand"><span className="brand-mark"><i className="bi bi-hexagon-fill"/></span><span>northstar<span className="brand-small">PLATFORM</span></span><button className="sidebar-close btn-icon" onClick={toggleSidebar} aria-label="Close menu"><i className="bi bi-x-lg"/></button></div>
+      <div className="brand"><span className="brand-mark"><i className="bi bi-hexagon-fill"/></span><span>Northstar<span className="brand-small">PLATFORM</span></span><button className="sidebar-close btn-icon" onClick={toggleSidebar} aria-label="Close menu"><i className="bi bi-x-lg"/></button></div>
       <div className="workspace-switch"><span className="workspace-avatar">N</span><span className="workspace-name">Northstar Inc.<small>{displayRole}</small></span><i className="bi bi-chevron-expand ms-auto text-white-50"/></div>
       <nav className="side-nav" aria-label="Main navigation">{visibleGroups.map((group) => <section className="nav-section" key={group.label}><div className="nav-section-title">{group.label}</div>{group.items.map((item) => <NavLink key={item.path} to={item.path} end={item.path === '/'} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => sidebarOpen && toggleSidebar()}><i className={`bi ${item.icon}`}/><span>{item.label}</span></NavLink>)}</section>)}</nav>
       <div className="sidebar-bottom">
